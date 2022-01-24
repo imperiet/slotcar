@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+BezierCars/Library/
+BezierCars/obj/
+BezierCars/Logs/
