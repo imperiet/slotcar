@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Car
+  - Car2
   layers:
   - Default
   - TransparentFX
