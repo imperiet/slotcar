@@ -71,7 +71,7 @@ public class FollowPath : MonoBehaviour
         carRigidbody.angularVelocity = Vector3.zero;
 
         carRigidbody.isKinematic = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         carRigidbody.isKinematic = false;
     }
 
