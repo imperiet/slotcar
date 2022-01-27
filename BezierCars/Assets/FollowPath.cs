@@ -11,12 +11,13 @@ public class FollowPath : MonoBehaviour
 {
     [SerializeField] Spline spline;
     [SerializeField] Transform testPosObject, testCursor;
-    [SerializeField] float testDistance;
-    [SerializeField] Slider throttleSlider;
+    [SerializeField] Slider forceIndicator;
     [SerializeField] Rigidbody slotPinRigidbody, carRigidbody;
     [SerializeField] float throttleModifier;
-    [ShowNonSerializedField] float throttleValue;
-
+    [SerializeField] HingeJoint joint;
+    [SerializeField] float maxStickingForce;
+    [ShowNonSerializedField] float throttleValue, hingeForce;
+    //public AnimationCurve forceRelativeToSpeed;
     public InputAction throttle;
 
     void OnEnable()
@@ -37,8 +38,6 @@ public class FollowPath : MonoBehaviour
     void Update()
     {
         throttleValue = throttle.ReadValue<float>();
-        
-        Debug.Log(throttle.ReadValue<float>());
     }
 
     void FixedUpdate()
@@ -49,6 +48,31 @@ public class FollowPath : MonoBehaviour
         }
         slotPinRigidbody.transform.position = spline.GetProjectionSample(slotPinRigidbody.position).location;
         slotPinRigidbody.transform.rotation = spline.GetProjectionSample(slotPinRigidbody.position).Rotation;
+
+        //Debug.Log(carRigidbody.velocity.magnitude);
+        // Vector3 adjustedCarVelocity = carRigidbody.velocity.normalized * forceRelativeToSpeed.Evaluate(carRigidbody.velocity.magnitude);
+        // Vector3.Dot(joint.currentForce.normalized, carRigidbody.velocity.normalized);
+
+        hingeForce = joint.currentForce.magnitude;
+
+        if (hingeForce > maxStickingForce)
+        {
+            StartCoroutine(BreakOffTrack(joint.currentForce));
+        }
+
+        forceIndicator.maxValue = maxStickingForce;
+        forceIndicator.value = hingeForce;
+        forceIndicator.fillRect.GetComponent<Image>().color = Color.Lerp(Color.green, Color.red, hingeForce / maxStickingForce);
+    }
+
+    IEnumerator BreakOffTrack(Vector3 breakForce)
+    {
+        carRigidbody.velocity = Vector3.zero;
+        carRigidbody.angularVelocity = Vector3.zero;
+
+        carRigidbody.isKinematic = true;
+        yield return new WaitForSeconds(.5f);
+        carRigidbody.isKinematic = false;
     }
 
     [Button]
@@ -61,27 +85,5 @@ public class FollowPath : MonoBehaviour
         */
         var curveSample = spline.GetProjectionSample(testCursor.position);
         testPosObject.transform.position = curveSample.location;
-    }
-
-    static float GetLoopingSplineTime(float span, float t)
-    {
-        float adjustedValue = t;
-
-        if (t > span)
-        {
-            while (adjustedValue > span)
-            {
-                adjustedValue -= span;
-            }
-
-        }
-        if (t < 0)
-        {
-            while (adjustedValue < 0)
-            {
-                adjustedValue += span;
-            }
-        }
-        return adjustedValue;
     }
 }
