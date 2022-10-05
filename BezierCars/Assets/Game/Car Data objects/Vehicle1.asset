@@ -12,14 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778aec0defd45c74fb2c0b8cf1943c49, type: 3}
   m_Name: Vehicle1
   m_EditorClassIdentifier: 
-  breakingForceCurve:
+  drivingForceCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 20
+      outSlope: 20
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 20
+      outSlope: 20
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  drivingForceModifier: 15
   slowestSpeed: 0.22
-  breakingAngle: 29
-  breakingSpeed: 1.24
   sidewaysAccelerationLimit: 119

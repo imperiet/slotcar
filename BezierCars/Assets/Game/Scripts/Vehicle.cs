@@ -12,6 +12,8 @@ namespace Thoreas.Vehicles
         [Expandable][SerializeField] VehicleInput input;
         [Foldout("Object References")][SerializeField] private Rigidbody carRigidbody, slotPinRigidbody;
         [Foldout("Object References")][SerializeField] private SplineMesh.Spline spline;
+        [Foldout("Object References")]
+        [ShowAssetPreview][SerializeField] private GameObject breakOffCarPrefab;
 
         private HingeJoint joint;
         private Coroutine queryThrottle;
@@ -147,12 +149,28 @@ namespace Thoreas.Vehicles
 
         private IEnumerator Break()
         {
+            GameObject clone = CreateCloneDummy(carRigidbody.velocity, carRigidbody.angularVelocity);
+
             carRigidbody.isKinematic = true;
             carRigidbody.velocity = Vector3.zero;
 
             yield return new WaitForSeconds(1f);
             carRigidbody.isKinematic = false;
 
+            Destroy(clone);
+        }
+
+        private GameObject CreateCloneDummy(Vector3 velocity, Vector3 angularVelocity)
+        {
+            GameObject clone = Instantiate(breakOffCarPrefab, carRigidbody.transform.position, carRigidbody.transform.rotation);
+
+            Rigidbody cloneRigidbody = clone.GetComponent<Rigidbody>();
+
+            cloneRigidbody.velocity = velocity;
+            cloneRigidbody.angularVelocity = angularVelocity;
+            cloneRigidbody.AddForce(Vector3.up*10f);
+
+            return clone;
         }
     }
 }
