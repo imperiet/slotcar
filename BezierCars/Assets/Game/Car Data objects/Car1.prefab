@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 1254275315355516017}
   - component: {fileID: 1254275315355516030}
   - component: {fileID: 1254275315355516031}
+  - component: {fileID: 7446343112964886467}
   m_Layer: 3
   m_Name: Car1
   m_TagString: Car
@@ -209,7 +210,7 @@ Transform:
   - {fileID: 1254275313740195014}
   - {fileID: 1254275313631073271}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1254275315355516016
 MonoBehaviour:
@@ -295,6 +296,19 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7446343112964886467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254275315355516029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db04694e7c953c408334cb31d8f0e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualsParent: {fileID: 5833339109678814168}
 --- !u!1001 &1254275315095810600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366,6 +380,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cb7ac9d022a95743babc4a5420dc1d2, type: 3}
+--- !u!1 &5833339109678814168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4727719419149492720, guid: 6cb7ac9d022a95743babc4a5420dc1d2, type: 3}
+  m_PrefabInstance: {fileID: 1254275315095810600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6611283905431259490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5393037944979159882, guid: 6cb7ac9d022a95743babc4a5420dc1d2, type: 3}

@@ -15,6 +15,7 @@ namespace Thoreas.Vehicles
         [Foldout("Object References")]
         [ShowAssetPreview][SerializeField] private GameObject breakOffCarPrefab;
 
+        private VehicleVisuals visuals;
         private HingeJoint joint;
         private Coroutine queryThrottle;
 
@@ -34,6 +35,7 @@ namespace Thoreas.Vehicles
             if (input) SetupVehicleInput(input);
 
             joint = GetComponent<HingeJoint>();
+            visuals = GetComponent<VehicleVisuals>();
         }
         protected virtual void OnDisable()
         {
@@ -151,11 +153,15 @@ namespace Thoreas.Vehicles
         {
             GameObject clone = CreateCloneDummy(carRigidbody.velocity, carRigidbody.angularVelocity);
 
+            visuals.VehicleVisibility = false;
+
             carRigidbody.isKinematic = true;
             carRigidbody.velocity = Vector3.zero;
 
             yield return new WaitForSeconds(1f);
             carRigidbody.isKinematic = false;
+
+            visuals.VehicleVisibility = true;
 
             Destroy(clone);
         }
