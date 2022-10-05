@@ -18,7 +18,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  drivingForceModifier: 10
+  drivingForceModifier: 15
   slowestSpeed: 0.22
-  breakingAngle: 30
-  breakingSpeed: 0.8
+  breakingAngle: 29
+  breakingSpeed: 1.24
+  sidewaysAccelerationLimit: 119

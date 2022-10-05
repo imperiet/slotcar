@@ -6,8 +6,10 @@ namespace Thoreas.Vehicles
     [CreateAssetMenu(fileName = "VehicleProperties", menuName = "Vehicle/Vehicle Properties")]
     public class VehicleProperties : ScriptableObject
     {
-        public AnimationCurve breakingForceCurve;
+        public AnimationCurve drivingForceCurve;
 
-        public float drivingForceModifier, slowestSpeed, breakingAngle, breakingSpeed;
+        public float slowestSpeed;
+        [Range(0f,200f)]
+        public float sidewaysAccelerationLimit;
     }
 }

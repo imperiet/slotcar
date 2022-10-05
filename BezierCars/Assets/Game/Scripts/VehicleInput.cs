@@ -5,7 +5,8 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class VehicleInput : MonoBehaviour
+[CreateAssetMenu(fileName ="VehicleInputAsset",menuName ="Vehicle/Input/Vehicle Input Asset")]
+public class VehicleInput : ScriptableObject
 {
     public Action<float> OnThrottle;
     public Action OnThrottleDown, OnThrottleUp;
@@ -13,7 +14,7 @@ public class VehicleInput : MonoBehaviour
     public InputAction throttle;
     [ShowNonSerializedField] float throttleValue;
 
-    void OnEnable()
+    public void Setup()
     {
         throttle.Enable();
 
@@ -21,20 +22,22 @@ public class VehicleInput : MonoBehaviour
         throttle.performed += (InputAction.CallbackContext obj) => { if (OnThrottleDown != null) OnThrottleDown(); };
 
     }
-    void OnDisabled()
+    public void Stop()
     {
         throttle.canceled -= (InputAction.CallbackContext obj) => { if (OnThrottleUp != null) OnThrottleUp(); };
         throttle.performed -= (InputAction.CallbackContext obj) => { if (OnThrottleDown != null) OnThrottleDown(); };
         throttle.Disable();
     }
 
-    void Update()
+    public float QueryThrottle()
     {
         throttleValue = throttle.ReadValue<float>();
 
         if (throttleValue != 0f)
         {
-            OnThrottle(throttleValue);
+            OnThrottle?.Invoke(throttleValue);
         }
+
+        return throttleValue;
     }
 }
