@@ -29,6 +29,9 @@ namespace Thoreas.Vehicles
         [ShowNonSerializedField] float currentDrivingForce, relativeAngle;
 
         public float RelativeAngle { get => relativeAngle; }
+        public Rigidbody CarRigidbody { get => carRigidbody; set => carRigidbody = value; }
+
+        public Action<float> OnDrive;
 
         protected virtual void OnEnable()
         {
@@ -73,6 +76,8 @@ namespace Thoreas.Vehicles
         public virtual void Drive(float throttle)
         {
             currentDrivingForce = throttle;
+
+            OnDrive?.Invoke(throttle);
         }
 
         protected virtual void StopThrottle()

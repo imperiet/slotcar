@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18353233, g: 0.22761898, b: 0.2971628, a: 1}
+  m_IndirectSpecularColor: {r: 0.46555424, g: 0.51440674, b: 0.5813071, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14665,7 +14665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1254275315355516028, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.70710635
       objectReference: {fileID: 0}
     - target: {fileID: 1254275315355516028, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -14673,7 +14673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1254275315355516028, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: -0.7071073
       objectReference: {fileID: 0}
     - target: {fileID: 1254275315355516028, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -14685,7 +14685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1254275315355516028, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 1254275315355516028, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -14694,6 +14694,38 @@ PrefabInstance:
     - target: {fileID: 1254275315355516029, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_Name
       value: Car1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848265993509390208, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848265993509390208, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1848265993509390208, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 4.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685341153471871851, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685341153471871851, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0528
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446343112964886467, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: tireSmokeEmissionRelativeDriveForce.m_Curve.Array.data[1].value
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446343112964886467, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: tireSmokeEmissionRelativeDriveForce.m_Curve.Array.data[1].inSlope
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446343112964886467, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: tireSmokeEmissionRelativeDriveForce.m_Curve.Array.data[1].outSlope
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
