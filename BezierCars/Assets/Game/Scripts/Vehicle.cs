@@ -18,7 +18,7 @@ namespace Thoreas.Vehicles
         private VehicleVisuals visuals;
         private HingeJoint joint;
         private Coroutine queryThrottle;
-
+        private bool offTrack;
 
         [HorizontalLine(color: EColor.Black)]
         [Space]
@@ -96,7 +96,7 @@ namespace Thoreas.Vehicles
             {
                 carRigidbody.AddForce(carRigidbody.transform.TransformDirection(Vector3.forward) * properties.drivingForceCurve.Evaluate(currentDrivingForce));
             }
-            else if (carRigidbody.velocity.magnitude < properties.slowestSpeed)
+            else if (carRigidbody.velocity.magnitude < properties.rigidbodySleepSpeed)
             {
                 carRigidbody.Sleep();
                 slotPinRigidbody.Sleep();
@@ -151,19 +151,24 @@ namespace Thoreas.Vehicles
 
         private IEnumerator Break()
         {
-            GameObject clone = CreateCloneDummy(carRigidbody.velocity, carRigidbody.angularVelocity);
+            if (!offTrack)
+            {
+                offTrack = true;
 
-            visuals.VehicleVisibility = false;
+                GameObject clone = CreateCloneDummy(carRigidbody.velocity, carRigidbody.angularVelocity);
 
-            carRigidbody.isKinematic = true;
-            carRigidbody.velocity = Vector3.zero;
+                visuals.VehicleVisibility = false;
 
-            yield return new WaitForSeconds(1f);
-            carRigidbody.isKinematic = false;
+                carRigidbody.isKinematic = true;
+                carRigidbody.velocity = Vector3.zero;
 
-            visuals.VehicleVisibility = true;
+                yield return new WaitForSeconds(1f);
+                carRigidbody.isKinematic = false;
 
-            Destroy(clone);
+                visuals.VehicleVisibility = true;
+                offTrack = false;
+                Destroy(clone);
+            }
         }
 
         private GameObject CreateCloneDummy(Vector3 velocity, Vector3 angularVelocity)

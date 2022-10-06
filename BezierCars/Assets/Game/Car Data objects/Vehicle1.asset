@@ -18,23 +18,23 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 20
-      outSlope: 20
-      tangentMode: 34
+      inSlope: 12.4135
+      outSlope: 12.4135
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.0400641
     - serializedVersion: 3
       time: 1
       value: 20
-      inSlope: 20
-      outSlope: 20
-      tangentMode: 34
+      inSlope: 26.389193
+      outSlope: 26.389193
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.033653915
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  slowestSpeed: 0.22
-  sidewaysAccelerationLimit: 119
+  sidewaysAccelerationLimit: 141
+  rigidbodySleepSpeed: 0.2

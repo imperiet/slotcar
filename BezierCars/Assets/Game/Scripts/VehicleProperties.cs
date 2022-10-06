@@ -8,8 +8,9 @@ namespace Thoreas.Vehicles
     {
         public AnimationCurve drivingForceCurve;
 
-        public float slowestSpeed;
         [Range(0f,200f)]
         public float sidewaysAccelerationLimit;
+
+        public float rigidbodySleepSpeed;
     }
 }
