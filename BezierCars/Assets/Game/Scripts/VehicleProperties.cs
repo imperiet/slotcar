@@ -12,5 +12,7 @@ namespace Thoreas.Vehicles
         public float sidewaysAccelerationLimit;
 
         public float rigidbodySleepSpeed;
+
+        public bool flipDirection;
     }
 }

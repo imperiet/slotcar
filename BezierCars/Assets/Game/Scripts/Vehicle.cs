@@ -8,12 +8,12 @@ namespace Thoreas.Vehicles
 {
     public class Vehicle : MonoBehaviour
     {
-        [Expandable][SerializeField] VehicleProperties properties;
-        [Expandable][SerializeField] VehicleInput input;
-        [Foldout("Object References")][SerializeField] private Rigidbody carRigidbody, slotPinRigidbody;
-        [Foldout("Object References")][SerializeField] private SplineMesh.Spline spline;
+        [Expandable] [SerializeField] VehicleProperties properties;
+        [Expandable] [SerializeField] VehicleInput input;
+        [Foldout("Object References")] [SerializeField] private Rigidbody carRigidbody, slotPinRigidbody;
+        [Foldout("Object References")] [SerializeField] private SplineMesh.Spline spline;
         [Foldout("Object References")]
-        [ShowAssetPreview][SerializeField] private GameObject breakOffCarPrefab;
+        [ShowAssetPreview] [SerializeField] private GameObject breakOffCarPrefab;
 
         private VehicleVisuals visuals;
         private HingeJoint joint;
@@ -23,10 +23,13 @@ namespace Thoreas.Vehicles
         [HorizontalLine(color: EColor.Black)]
         [Space]
 
-        [ProgressBar("X Acceleration", 300, EColor.Red)]
+        [ProgressBar("Sideways Acceleration", 300, EColor.Red)]
         [SerializeField] float xAcceleration = 0f;
 
-        [ShowNonSerializedField] float currentDrivingForce, relativeAngle;
+        [ProgressBar("Driving Force", 1, EColor.Yellow)]
+        [SerializeField] float currentDrivingForce;
+        [ProgressBar("Relative Angle", 180, EColor.Blue)]
+        [SerializeField] float relativeAngle;
 
         public float RelativeAngle { get => relativeAngle; }
         public Rigidbody CarRigidbody { get => carRigidbody; set => carRigidbody = value; }
@@ -111,6 +114,10 @@ namespace Thoreas.Vehicles
             //Move Vehicle to position relative track
             slotPinRigidbody.transform.position = spline.GetProjectionSample(slotPinRigidbody.position).location;
             slotPinRigidbody.transform.rotation = spline.GetProjectionSample(slotPinRigidbody.position).Rotation;
+            if (properties.flipDirection)
+            {
+                slotPinRigidbody.transform.Rotate(Vector3.up * 180);
+            }
 
             //Calculate sideways acceleration
             xAcceleration = GetXAcceleration(carRigidbody.transform.InverseTransformDirection(carRigidbody.velocity).x);
@@ -185,7 +192,7 @@ namespace Thoreas.Vehicles
 
             cloneRigidbody.velocity = velocity;
             cloneRigidbody.angularVelocity = angularVelocity;
-            cloneRigidbody.AddForce(Vector3.up*10f);
+            cloneRigidbody.AddForce(Vector3.up * 10f);
 
             return clone;
         }

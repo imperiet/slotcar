@@ -234,6 +234,8 @@ MonoBehaviour:
   spline: {fileID: 0}
   breakOffCarPrefab: {fileID: 1254275315355516029, guid: d79df56fd9203a140871c6b249415ef8, type: 3}
   xAcceleration: 0
+  currentDrivingForce: 0
+  relativeAngle: 0
 --- !u!114 &7446343112964886467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +474,7 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.02
   m_MaskInteraction: 0
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1 &2963300827194980677
@@ -5420,7 +5422,7 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.02
   m_MaskInteraction: 0
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1001 &1254275315095810600
