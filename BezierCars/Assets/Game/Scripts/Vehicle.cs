@@ -30,6 +30,7 @@ namespace Thoreas.Vehicles
 
         public float RelativeAngle { get => relativeAngle; }
         public Rigidbody CarRigidbody { get => carRigidbody; set => carRigidbody = value; }
+        public float XAcceleration { get => xAcceleration; set => xAcceleration = value; }
 
         public Action<float> OnDrive;
 

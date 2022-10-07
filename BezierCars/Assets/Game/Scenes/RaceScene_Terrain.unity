@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46555424, g: 0.51440674, b: 0.5813071, a: 1}
+  m_IndirectSpecularColor: {r: 0.18353233, g: 0.22761898, b: 0.2971628, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14707,6 +14707,22 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 4.19
       objectReference: {fileID: 0}
+    - target: {fileID: 2755584535358132821, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: m_Name
+      value: TireTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693567317736621662, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: m_Name
+      value: TireTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289135892721875862, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239683083150665801, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6685341153471871851, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14714,18 +14730,6 @@ PrefabInstance:
     - target: {fileID: 6685341153471871851, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0528
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446343112964886467, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: tireSmokeEmissionRelativeDriveForce.m_Curve.Array.data[1].value
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446343112964886467, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: tireSmokeEmissionRelativeDriveForce.m_Curve.Array.data[1].inSlope
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446343112964886467, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: tireSmokeEmissionRelativeDriveForce.m_Curve.Array.data[1].outSlope
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
