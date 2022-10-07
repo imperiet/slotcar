@@ -1,4 +1,5 @@
 using UnityEngine;
+using NaughtyAttributes;
 
 namespace Thoreas.Vehicles
 {
@@ -7,10 +8,9 @@ namespace Thoreas.Vehicles
         private Vehicle vehicle;
         private bool vehicleVisibility;
         [SerializeField] private GameObject visualsParent;
-        [SerializeField] private ParticleSystem tireSmokeParticleSystem;
+        [SerializeField] private ParticleSystem[] tireSmokeParticleSystem;
         [SerializeField] private TrailRenderer[] tireMarksRenderer;
-        [SerializeField][Range(0f, 200f)] float tireMarksAccelerationThreshhold;
-
+        [SerializeField] [Range(0f, 200f)] float tireMarksAccelerationThreshhold;
 
         [SerializeField] AnimationCurve tireSmokeEmissionRelativeDriveForce;
 
@@ -25,11 +25,18 @@ namespace Thoreas.Vehicles
         private void OnEnable()
         {
             if (vehicle == null) vehicle = GetComponent<Vehicle>();
+
+
         }
 
         private void Update()
         {
-            tireSmokeParticleSystem.emissionRate = tireSmokeEmissionRelativeDriveForce.Evaluate(vehicle.CarRigidbody.velocity.magnitude);
+            foreach (var ps in tireSmokeParticleSystem)
+            {
+                var emission = ps.emission;
+                emission.rateOverTime = tireSmokeEmissionRelativeDriveForce.Evaluate(vehicle.CarRigidbody.velocity.magnitude);
+            }
+
             foreach (var t in tireMarksRenderer)
             {
                 t.emitting = vehicle.XAcceleration > tireMarksAccelerationThreshhold ? true : false;

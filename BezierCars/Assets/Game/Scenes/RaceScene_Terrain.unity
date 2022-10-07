@@ -7334,7 +7334,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9036,7 +9036,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9831,7 +9831,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11948,7 +11948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1642539132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14193,7 +14193,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14694,42 +14694,6 @@ PrefabInstance:
     - target: {fileID: 1254275315355516029, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
       propertyPath: m_Name
       value: Car1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848265993509390208, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848265993509390208, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848265993509390208, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 4.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 2755584535358132821, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: m_Name
-      value: TireTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 3693567317736621662, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: m_Name
-      value: TireTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 5289135892721875862, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: m_Parameters.numCornerVertices
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6239683083150665801, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: m_Parameters.numCornerVertices
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685341153471871851, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685341153471871851, guid: 29229def72d3ba340bf4d387eb022eb1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0528
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

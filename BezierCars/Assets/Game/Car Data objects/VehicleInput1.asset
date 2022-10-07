@@ -44,4 +44,12 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Throttle
       m_Flags: 8
+    - m_Name: 
+      m_Id: 781a8aa9-cb6d-43b0-b682-e8e48ec443c9
+      m_Path: <Gamepad>/rightTrigger
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Throttle
+      m_Flags: 0
     m_Flags: 0
