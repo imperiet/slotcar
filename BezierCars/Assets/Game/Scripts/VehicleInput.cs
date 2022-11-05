@@ -14,7 +14,7 @@ public class VehicleInput : ScriptableObject
     public InputAction throttle;
     [ShowNonSerializedField] float throttleValue;
 
-    public void Setup()
+    public virtual void Setup()
     {
         throttle.Enable();
 
@@ -22,14 +22,14 @@ public class VehicleInput : ScriptableObject
         throttle.performed += (InputAction.CallbackContext obj) => { if (OnThrottleDown != null) OnThrottleDown(); };
 
     }
-    public void Stop()
+    public virtual void Stop()
     {
         throttle.canceled -= (InputAction.CallbackContext obj) => { if (OnThrottleUp != null) OnThrottleUp(); };
         throttle.performed -= (InputAction.CallbackContext obj) => { if (OnThrottleDown != null) OnThrottleDown(); };
         throttle.Disable();
     }
 
-    public float QueryThrottle()
+    public virtual float QueryThrottle()
     {
         throttleValue = throttle.ReadValue<float>();
 
